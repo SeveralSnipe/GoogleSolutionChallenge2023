@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Elderly Helper',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.highContrastLight(
-            primary: Color.fromARGB(175, 0, 0, 0)),
+        colorScheme: const ColorScheme.highContrastLight(
+            primary: Colors.grey),
       ),
       home: MyHomePage(),
     );
@@ -29,8 +30,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
   var selectedIndex = 0;
+  @override
   Widget build(BuildContext context) {
     Widget page;
     switch (selectedIndex) {
@@ -38,10 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
         page = MedList();
         break;
       case 1:
-        page = Placeholder(color: Colors.red);
+        page = const Placeholder(color: Colors.red);
         break;
       case 2:
-        page = Placeholder(color: Colors.blue);
+        page = const Placeholder(color: Colors.blue);
         break;
       default:
         throw UnimplementedError("No widget for $selectedIndex");

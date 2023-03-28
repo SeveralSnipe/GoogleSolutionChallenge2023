@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 class MedCard extends StatefulWidget {
   final String medicationName;
   final String dosage;
-  MedCard({required this.medicationName, required this.dosage});
+  final bool syrup;
+  MedCard({required this.medicationName, required this.dosage, required this.syrup});
 
   @override
   State<MedCard> createState() => _MedCardState();
@@ -22,7 +23,7 @@ class _MedCardState extends State<MedCard> {
           children: <Widget>[
             ListTile(
               leading: Icon(
-                Icons.medication_rounded,
+                (widget.syrup)?Icons.medication_liquid_rounded:Icons.medication_rounded,
                 color: Colors.amber,
               ),
               title: Text(widget.medicationName),
