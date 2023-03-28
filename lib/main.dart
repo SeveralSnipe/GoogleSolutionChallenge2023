@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import './medlist.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Elderly Helper',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.highContrastLight(primary: Colors.black),
+        colorScheme: ColorScheme.highContrastLight(
+            primary: Color.fromARGB(175, 0, 0, 0)),
       ),
       home: MyHomePage(),
     );
@@ -32,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = Placeholder(color: Colors.yellow);
+        page = MedList();
         break;
       case 1:
         page = Placeholder(color: Colors.red);
@@ -44,42 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
         throw UnimplementedError("No widget for $selectedIndex");
     }
     return Scaffold(
-      // body: Row(
-      //   children: [
-      //     SafeArea(
-
-      // child: NavigationRail(
-      //   extended: false,
-      //   destinations: [
-      //     NavigationRailDestination(
-      //       icon: Icon(Icons.medication),
-      //       label: Text('Medication reminder'),
-      //     ),
-      //     NavigationRailDestination(
-      //       icon: Icon(Icons.phone),
-      //       label: Text('Contact Manager'),
-      //     ),
-      //     NavigationRailDestination(
-      //       icon: Icon(Icons.menu_book),
-      //       label: Text('Cognitive Testing'),
-      //     ),
-      //   ],
-      //   selectedIndex: selectedIndex,
-      //   onDestinationSelected: (value) {
-      //     setState(() {
-      //       selectedIndex = value;
-      //     });
-      //   },
-      // ),
-      //     ),
-      //     Expanded(
-      //       child: Container(
-      //         color: Theme.of(context).colorScheme.primary,
-      //         child: page,
-      //       ),
-      //     ),
-      //   ],
-      // ),
       bottomNavigationBar: SafeArea(
           child: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -88,7 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.phone), label: 'Contact Manager'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book), label: 'Cognitive Testing'),
+              icon: Icon(Icons.health_and_safety_rounded),
+              label: 'Breathing Exercise'),
         ],
         currentIndex: selectedIndex,
         selectedItemColor: Colors.amber,
