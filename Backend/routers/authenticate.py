@@ -87,7 +87,7 @@ async def get_current_active_user(current_user: schemas.User = Depends(get_curre
 @router.post("/token", response_model=schemas.Token)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(),
                                  db: Session = Depends(get_db)):
-    user = authenticate_user(form_data.name, form_data.password, db)
+    user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
