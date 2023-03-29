@@ -211,13 +211,30 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(color: Colors.white),
                 )),
         )),
-        ElevatedButton(
-          onPressed: () {
-            showSimpleModalDialog(context);
-          },
-          child: Text('Add Contacts'),
-        ),
-      ]),
+        
+      SizedBox(
+            width: double.infinity,
+            height:50,
+            child: Container(
+              color:Colors.green,
+              width:40,
+              child: ElevatedButton(
+                onPressed: () {
+                  showSimpleModalDialog(context);
+                },
+                style: ElevatedButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0), 
+                              backgroundColor: Colors.blue,
+                          // maximumSize: Size(40,40),
+                ),
+                child: Text('Add Contacts'),
+              ),
+            ),
+          ),
+    //   
+    // 
+    ]),
     );
   }
 
