@@ -212,12 +212,11 @@ class _HomePageState extends State<HomePage> {
                 )),
         )),
         
-      SizedBox(
+      Container(
             width: double.infinity,
             height:50,
-            child: Container(
-              color:Colors.green,
-              width:40,
+            color: Colors.grey.shade900,
+            child: Center(
               child: ElevatedButton(
                 onPressed: () {
                   showSimpleModalDialog(context);
