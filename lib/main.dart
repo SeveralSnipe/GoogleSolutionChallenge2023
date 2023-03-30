@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './medlist.dart';
+import 'package:gsoc/EmergencyList/models/emergencymain.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = MedList();
         break;
       case 1:
-        page = const Placeholder(color: Colors.red);
+        page = Emergency();
         break;
       case 2:
         page = const Placeholder(color: Colors.blue);
