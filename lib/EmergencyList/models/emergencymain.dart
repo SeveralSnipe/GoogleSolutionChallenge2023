@@ -195,7 +195,10 @@ class _EmergencyState extends State<Emergency> {
                     
                               onPressed:(context)=>{ 
                                 //print(_foundedUsers[index].name),deleteusers(_foundedUsers[index].name,_foundedUsers[index].username,_foundedUsers[index].image,_foundedUsers[index].isFollowedByMe,_users)
-                                _users.removeAt(index)
+                                _users.removeAt(index),
+                                setState(() {
+                                  
+                                },)
                                 }),
                               
                           SlidableAction(

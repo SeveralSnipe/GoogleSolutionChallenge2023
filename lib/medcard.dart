@@ -2,7 +2,6 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:xen_popup_card/xen_card.dart';
 
 class MedCard extends StatefulWidget {
   final String medicationName;
@@ -18,25 +17,41 @@ class MedCard extends StatefulWidget {
 }
 
 class _MedCardState extends State<MedCard> {
-  Widget popUp(BuildContext context) {
-    return XenPopupCard(
-        gutter: XenCardGutter(
-            child: Row(
-          children: <Widget>[
-            ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green)),
-                onPressed: () {},
-                child: Text("Yes")),
-            ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red)),
-                onPressed: () {},
-                child: Text("No"))
+  bool _hasBeenPressed = false;
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Confirmation'),
+          content: const Text(
+              'Are you sure that you want to delete this medicine from the list?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                  backgroundColor: Colors.green),
+              child: const Text('Yes'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                  backgroundColor: Colors.red),
+              child: const Text('No'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
           ],
-        )),
-        body: Center(
-            child: Text(
-                "Are you sure that you want to delete this medicine from the list?")));
+        );
+      },
+    );
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +65,9 @@ class _MedCardState extends State<MedCard> {
               children: <Widget>[
                 CloseButton(
                   color: Colors.red,
-                  onPressed: () {popUp(context);},
+                  onPressed: () {
+                    _dialogBuilder(context);
+                  },
                 )
               ],
             ),
@@ -67,9 +84,17 @@ class _MedCardState extends State<MedCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                TextButton(
-                  child: const Text('I took my medicine'),
-                  onPressed: () {/* ... */},
+                ElevatedButton(
+                  onPressed: () {setState(() {
+                    _hasBeenPressed=!_hasBeenPressed;
+                  });},
+                  style: ButtonStyle(backgroundColor: _hasBeenPressed?MaterialStatePropertyAll(Colors.red):MaterialStatePropertyAll(Colors.blue)),
+                      
+                    
+                  child: const Text(
+                    'I have taken my medicine',
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
                 const SizedBox(width: 8),
               ],
