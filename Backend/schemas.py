@@ -26,3 +26,13 @@ class UserInDB(User):
 
 class UserForgot(User):
     phone: str
+
+
+class UserLogin(BaseModel):
+    phone: str
+    password: str
+
+
+class UserLogged(User):
+    age: int
+

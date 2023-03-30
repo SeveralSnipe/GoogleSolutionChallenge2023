@@ -1,5 +1,6 @@
 from fastapi import APIRouter, status, Depends
 from repository import user_funx
+from routers import authenticate
 import schemas
 from sqlalchemy.orm import Session
 from database import get_db
@@ -26,3 +27,9 @@ async def signup(request: schemas.UserInDB, db: Session = Depends(get_db)):
 async def forgot(request: schemas.UserForgot, db: Session = Depends(get_db)):
     user_funx.forgot(request, db)
     return "SMS sent"
+
+
+@router.post('/login', response_model=schemas.UserLogged)
+async def login(request: schemas.UserLogin,
+                db: Session = Depends(get_db)):
+    return authenticate.authenticate_user(request, db)
