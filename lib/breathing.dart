@@ -8,7 +8,7 @@ class BreathingExercisePage extends StatefulWidget {
 
 class _BreathingExercisePageState extends State<BreathingExercisePage> {
   int _secondsRemaining = 0;
-  late Timer _timer;
+ Timer? _timer;
   final _animationController = ValueNotifier<double>(0);
   String _breathingText = '';
   int _breathCount = 0;
@@ -43,9 +43,9 @@ class _BreathingExercisePageState extends State<BreathingExercisePage> {
   }
 
   void _stopTimer() {
-    if (_timer != null && _timer.isActive) {
-      _timer.cancel();
-      // _timer = null;
+    if (_timer != null && _timer!.isActive) {
+      _timer!.cancel();
+      _timer = null;
     }
   }
 
@@ -97,13 +97,13 @@ class _BreathingExercisePageState extends State<BreathingExercisePage> {
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                if (_timer == null || !_timer.isActive) {
+                if (_timer == null || !_timer!.isActive) {
                   _startTimer();
                 } else {
                   _stopTimer();
                 }
               },
-              child: Text(_timer == null || !_timer.isActive ? 'Start' : 'Stop'),
+              child: Text(_timer == null || !_timer!.isActive ? 'Start' : 'Stop'),
             ),
           ],
         ),
