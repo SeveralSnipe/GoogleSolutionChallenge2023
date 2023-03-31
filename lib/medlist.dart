@@ -15,7 +15,7 @@ class MedList extends StatefulWidget {
 }
 
 class _MedListState extends State<MedList> {
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView(
