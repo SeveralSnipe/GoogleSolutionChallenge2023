@@ -9,8 +9,8 @@ class MedCard extends StatefulWidget {
   final bool syrup;
   MedCard(
       {required this.medicationName,
-      required this.dosage,
-      required this.syrup});
+        required this.dosage,
+        required this.syrup});
 
   @override
   State<MedCard> createState() => _MedCardState();
@@ -51,7 +51,7 @@ class _MedCardState extends State<MedCard> {
     );
   }
 
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +89,8 @@ class _MedCardState extends State<MedCard> {
                     _hasBeenPressed=!_hasBeenPressed;
                   });},
                   style: ButtonStyle(backgroundColor: _hasBeenPressed?MaterialStatePropertyAll(Colors.red):MaterialStatePropertyAll(Colors.blue)),
-                      
-                    
+
+
                   child: const Text(
                     'I have taken my medicine',
                     style: TextStyle(fontSize: 16),

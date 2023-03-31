@@ -1,4 +1,4 @@
-import 'package:gsoc/EmergencyList/models/user.dart';
+import 'package:phone_otpcheck/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 // ignore: unused_import
@@ -32,7 +32,7 @@ class _EmergencyState extends State<Emergency> {
   }
 
   void deleteusers(final String names, final String usernames,bool isFollowedByMes) {
-      _users.remove(User(names,usernames,isFollowedByMes));
+    _users.remove(User(names,usernames,isFollowedByMes));
   }
   final _formKey = GlobalKey<FormState>();
   void showSimpleModalDialog(context) {
@@ -62,7 +62,7 @@ class _EmergencyState extends State<Emergency> {
                                   padding: EdgeInsets.all(8.0),
                                   child: TextFormField(
                                       onSaved: (value) =>
-                                          {names = value.toString()},
+                                      {names = value.toString()},
                                       decoration: InputDecoration(
                                           hintText: "Name",
                                           enabledBorder: OutlineInputBorder(
@@ -74,7 +74,7 @@ class _EmergencyState extends State<Emergency> {
                                   padding: EdgeInsets.all(8.0),
                                   child: TextFormField(
                                       onSaved: (value) =>
-                                          {usernames = value.toString()},
+                                      {usernames = value.toString()},
                                       decoration: InputDecoration(
                                           hintText: "Mobile Number",
                                           enabledBorder: OutlineInputBorder(
@@ -82,7 +82,7 @@ class _EmergencyState extends State<Emergency> {
                                                   width: 3,
                                                   color: Colors.black)))),
                                 ),
-                            
+
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: ElevatedButton(
@@ -93,10 +93,10 @@ class _EmergencyState extends State<Emergency> {
                                         addusers(
                                             names, usernames, false);
                                         setState(() {
-                                          
+
                                         });
                                         Navigator.of(context,
-                                                rootNavigator: true)
+                                            rootNavigator: true)
                                             .pop();
                                       }
                                     },
@@ -160,9 +160,9 @@ class _EmergencyState extends State<Emergency> {
       body: Column(children: <Widget>[
         Expanded(
             child: Container(
-          color: Colors.grey.shade900,
-          child: _foundedUsers.length > 0
-              ? ListView.builder(
+              color: Colors.grey.shade900,
+              child: _foundedUsers.length > 0
+                  ? ListView.builder(
                   itemCount: _foundedUsers.length,
                   itemBuilder: (context, index) {
                     return Slidable(
@@ -192,15 +192,15 @@ class _EmergencyState extends State<Emergency> {
                               label: 'Delete',
                               backgroundColor: Colors.transparent,
                               icon: Icons.delete,
-                    
-                              onPressed:(context)=>{ 
+
+                              onPressed:(context)=>{
                                 //print(_foundedUsers[index].name),deleteusers(_foundedUsers[index].name,_foundedUsers[index].username,_foundedUsers[index].image,_foundedUsers[index].isFollowedByMe,_users)
                                 _users.removeAt(index),
                                 setState(() {
-                                  
+
                                 },)
-                                }),
-                              
+                              }),
+
                           SlidableAction(
                               label: 'More',
                               backgroundColor: Colors.transparent,
@@ -211,35 +211,35 @@ class _EmergencyState extends State<Emergency> {
                       child: userComponent(user: _foundedUsers[index]),
                     );
                   })
-              : Center(
+                  : Center(
                   child: Text(
-                  "No users found",
-                  style: TextStyle(color: Colors.white),
-                )),
-        )),
-        
-      Container(
-            width: double.infinity,
-            height:50,
-            color: Colors.grey.shade900,
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  showSimpleModalDialog(context);
-                },
-                style: ElevatedButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0), 
-                              backgroundColor: Colors.blue,
-                          // maximumSize: Size(40,40),
-                ),
-                child: Text('Add Contacts'),
+                    "No users found",
+                    style: TextStyle(color: Colors.white),
+                  )),
+            )),
+
+        Container(
+          width: double.infinity,
+          height:50,
+          color: Colors.grey.shade900,
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                showSimpleModalDialog(context);
+              },
+              style: ElevatedButton.styleFrom(
+                padding:
+                EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+                backgroundColor: Colors.blue,
+                // maximumSize: Size(40,40),
               ),
+              child: Text('Add Contacts'),
             ),
           ),
-    //   
-    // 
-    ]),
+        ),
+        //
+        //
+      ]),
     );
   }
 
@@ -251,7 +251,7 @@ class _EmergencyState extends State<Emergency> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(children: [
-          
+
             SizedBox(width: 10),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(user.name,
@@ -264,9 +264,9 @@ class _EmergencyState extends State<Emergency> {
             ])
           ]),
           GestureDetector(
-              //change to calling that number
+            //change to calling that number
               onTap: () => {
-                
+
                 // _launchPhoneURL(user.username)
               }
               ,
@@ -274,8 +274,8 @@ class _EmergencyState extends State<Emergency> {
                 onPressed: () {_launchUrl(user.username);},
                 style: ElevatedButton.styleFrom(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0), 
-                        backgroundColor: Colors.blue,
+                    EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+                    backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0))),
                 child: Text(
@@ -283,7 +283,7 @@ class _EmergencyState extends State<Emergency> {
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               )
-              )
+          )
         ],
       ),
     );
