@@ -1,6 +1,6 @@
 # SeniorPal
 
-A flutter app which provides various useful utilites to the elderly.
+A flutter app which provides various useful utilities to the elderly.
 
 ## About
 
