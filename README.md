@@ -39,7 +39,7 @@ To set up the backend, the user needs to have Python installed. Then, do the fol
 
 ## Running the app:
 
-First, the backend needs to be setup. After that, make sure you have flutter installed in the computer. Then, open up android emulator and either a) run a virtual device or b) connect your phone to the computer. Then, just run the app through your preferred IDE or via the command line.
+First, the backend needs to be setup. After that, make sure you have flutter installed in the computer. Clone this github repository. Then, open up android emulator and either a) run a virtual device or b) connect your phone to the computer. Then, just run the app through your preferred IDE or via the command line.
 
 
 ## Permissions:
