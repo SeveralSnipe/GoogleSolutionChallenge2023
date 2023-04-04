@@ -37,6 +37,11 @@ To set up the backend, the user needs to have Python installed. Then, do the fol
 
 * run server using "uvicorn main:app --reload" 
 
+## Running the app:
+
+First, the backend needs to be setup. After that, make sure you have flutter installed in the computer. Then, open up android emulator and either a) run a virtual device or b) connect your phone to the computer. Then, just run the app through your preferred IDE or via the command line.
+
+
 ## Permissions:
 
 The app requires Internet access.
