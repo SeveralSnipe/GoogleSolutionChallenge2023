@@ -19,18 +19,23 @@ The purpose of this app is to be an "assistant" for senior citizens which provid
       
 ## Technologies Used:
 
-Sqlalchemy- Facilitates communication between the Python program and database.
-Fast-API- Used to create accounts, login and authenticate as well as send an SMS when forgot password is clicked on.
-Flutter- Used to create all the major functionalities of the app like Medication Reminder, Emergency Calling as well as Breathing Exercise along with the overall design of the app.
+*Sqlalchemy- Facilitates communication between the Python program and database.
+
+*Fast-API- Used to create accounts, login and authenticate as well as send an SMS when forgot password is clicked on.
+
+*Flutter- Used to create all the major functionalities of the app like Medication Reminder, Emergency Calling as well as Breathing Exercise along with the overall design of the app.
 
 ## Setting up the backend:
 
 To set up the backend, the user needs to have Python installed. Then, do the following: 
 
-create virtual env venv using pip
-activate venv using "./venv/Scripts/activate" in terminal
-use "pip freeze requirements.txt" to install dependencies
-run server using "uvicorn main:app --reload" 
+*create virtual env venv using pip
+
+*activate venv using "./venv/Scripts/activate" in terminal
+
+*use "pip freeze requirements.txt" to install dependencies
+
+*run server using "uvicorn main:app --reload" 
 
 ## Permissions:
 
